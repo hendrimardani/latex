@@ -99,6 +99,8 @@ list_input_tiket = []
 list_harga = []
 list_total = []
 list_uang = []
+list_hargaLebihTiga = []
+list_kembalian = []
 
 jamSekarang = waktuSekarang.strftime(waktuSekarang.strftime("%H%M%S"))
 jamSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%X"))
@@ -138,32 +140,41 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Eksekutif"
                     HARGA = 135000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
-                        totalBayar = input_uang - total
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
-                        total = HARGA
+                        total = HARGA * input_tiket
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
             
                 elif input_kelas == 2:
                     input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Bisnis"
                     HARGA = 84000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -177,12 +188,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Ekonomi"
                     HARGA = 63000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -197,12 +212,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Eksekutif"
                     HARGA = 275000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -216,12 +235,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Bisnis"
                     HARGA = 185000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -235,12 +258,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Ekonomi"
                     HARGA = 135000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -262,12 +289,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Eksekutif"
                     HARGA = 275000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -281,12 +312,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Bisnis"
                     HARGA = 185000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -300,12 +335,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Ekonomi"
                     HARGA = 135000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -329,12 +368,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Eksekutif"
                     HARGA = 135000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -348,12 +391,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Bisnis"
                     HARGA = 84000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -367,12 +414,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Ekonomi"
                     HARGA = 63000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -387,12 +438,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Eksekutif"
                     HARGA = 150000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -406,12 +461,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Bisnis"
                     HARGA = 120000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -425,12 +484,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Ekonomi"
                     HARGA = 75000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -445,12 +508,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Eksekutif"
                     HARGA = 275000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -464,12 +531,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Bisnis"
                     HARGA = 185000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -483,12 +554,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_kelas = "Ekonomi"
                     HARGA = 135000
                     if input_tiket > 3:
-                        total = HARGA - (HARGA * DISKON)
+                        hargaLebihTiga = HARGA * input_tiket
+                        total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                        kembalian = input_uang - total
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
+                        list_hargaLebihTiga.append(hargaLebihTiga)
                         list_total.append(total)
                         list_uang.append(input_uang)
+                        list_kembalian.append(kembalian)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
@@ -516,12 +591,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Eksekutif"
                         HARGA = 140000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -535,12 +614,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Bisnis"
                         HARGA = 100000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -554,12 +637,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Ekonomi"
                         HARGA = 70000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -574,12 +661,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Eksekutif"
                         HARGA = 275000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -593,12 +684,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Bisnis"
                         HARGA = 185000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -612,12 +707,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Ekonomi"
                         HARGA = 135000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -632,12 +731,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Eksekutif"
                         HARGA = 222000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -651,12 +754,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Bisnis"
                         HARGA = 150000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -670,12 +777,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         input_kelas = "Ekonomi"
                         HARGA = 111000
                         if input_tiket > 3:
-                            total = HARGA - (HARGA * DISKON)
+                            hargaLebihTiga = HARGA * input_tiket
+                            total = hargaLebihTiga - (hargaLebihTiga * DISKON)
+                            kembalian = input_uang - total
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
+                            list_hargaLebihTiga.append(hargaLebihTiga)
                             list_total.append(total)
                             list_uang.append(input_uang)
+                            list_kembalian.append(kembalian)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
@@ -688,4 +799,3 @@ else:
 
 
 print(list_input_nama)
-asdasd
