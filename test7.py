@@ -206,7 +206,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_harga.append(HARGA)
                         list_total.append(total)
                         list_uang.append(input_uang)
-
+            
             elif input_tujuan == 2: # Stasiun Kediri
                 if input_kelas == 1:
                     input_uang = int(input("Masukkan jumlah uang anda: "))
