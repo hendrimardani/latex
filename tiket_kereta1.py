@@ -28,7 +28,6 @@ daftar_harga = (
     "Rp.110.000"
 )
 
-print("a")
 kota = (
     "Stasiun Kiaracondong (KAC) Bandung", 
     "Stasiun Pasar senen (PSE) Jakarta",
