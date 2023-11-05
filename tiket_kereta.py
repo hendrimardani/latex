@@ -70,8 +70,8 @@ for x in range(0, len(kota)):
     for y in range(0, len(kelas)):
         daftar_jam.append(jam[x])
 
-nama = "Stasiun Tasikmalaya"
 dari = []
+nama = "Stasiun Tasikmalaya"
 for x in range(0, len(daftar_tujuan)):
     dari.append(nama)
 
@@ -87,11 +87,6 @@ for baris in range(0, len(daftar_tujuan)):
     print("| {:^2} | {:^21} | {:^50} | {:^15} | {:^15} | {:^22} |".format(baris + 1, dari[baris], daftar_tujuan[baris], daftar_harga[baris], daftar_kelas[baris], daftar_jam[baris]))
 print("+", "-"* 140, "+")
 
-# print(waktuSekarang.strftime("%X - %A - %d - %B - %Y "))
-# # 12:32:28 - Tuesday - 31 - October - 2023 
-
-# print(waktuSekarang.strftime("%Y-%m-%d-%H-%M-%S"))
-# # 2023-10-31-13-23-42
 
 
 # Proses
@@ -156,8 +151,10 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
-
+                        list_uang.append(input_uang)
+            
                 elif input_kelas == 2:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Bisnis"
                     HARGA = 84000
                     if input_tiket > 3:
@@ -166,14 +163,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 3:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Ekonomi"
                     HARGA = 63000
                     if input_tiket > 3:
@@ -182,15 +182,18 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
             elif input_tujuan == 2: # Stasiun Kediri
                 if input_kelas == 1:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Eksekutif"
                     HARGA = 275000
                     if input_tiket > 3:
@@ -199,14 +202,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 2:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Bisnis"
                     HARGA = 185000
                     if input_tiket > 3:
@@ -215,14 +221,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 3:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Ekonomi"
                     HARGA = 135000
                     if input_tiket > 3:
@@ -231,12 +240,14 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                 else:
                     print("Kode yang anda masukkan tidak ada")
 
@@ -247,6 +258,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
             input_tujuan = int(input("Masukkan kode kereta yang tersedia:\n[1] Stasiun Kediri (KD) Kediri: "))
             if input_tujuan == 1: # Stasiun Kediri
                 if input_kelas == 1:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Eksekutif"
                     HARGA = 275000
                     if input_tiket > 3:
@@ -255,14 +267,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 2:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Bisnis"
                     HARGA = 185000
                     if input_tiket > 3:
@@ -271,14 +286,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 3:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Ekonomi"
                     HARGA = 135000
                     if input_tiket > 3:
@@ -287,12 +305,14 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                 else:
                     print("Kode yang anda masukkan tidak ada")
 
@@ -305,6 +325,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
             "[3] Stasiun Jatinegara Jakarta: "))
             if input_tujuan == 1: # Stasiun PSE Jakarta
                 if input_kelas == 1:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Eksekutif"
                     HARGA = 135000
                     if input_tiket > 3:
@@ -313,14 +334,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 2:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Bisnis"
                     HARGA = 84000
                     if input_tiket > 3:
@@ -329,14 +353,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 3:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Ekonomi"
                     HARGA = 63000
                     if input_tiket > 3:
@@ -345,15 +372,18 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
             elif input_tujuan == 2: # Stasiun Mojokerto
                 if input_kelas == 1:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Eksekutif"
                     HARGA = 150000
                     if input_tiket > 3:
@@ -362,14 +392,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 2:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Bisnis"
                     HARGA = 120000
                     if input_tiket > 3:
@@ -378,14 +411,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 3:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Ekonomi"
                     HARGA = 75000
                     if input_tiket > 3:
@@ -394,15 +430,18 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
             elif input_tujuan == 3: # Stasiun Jatinegara Jakarta
                 if input_kelas == 1:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Eksekutif"
                     HARGA = 275000
                     if input_tiket > 3:
@@ -411,14 +450,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 2:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Bisnis"
                     HARGA = 185000
                     if input_tiket > 3:
@@ -427,14 +469,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
 
                 elif input_kelas == 3:
+                    input_uang = int(input("Masukkan jumlah uang anda: "))
                     input_kelas = "Ekonomi"
                     HARGA = 135000
                     if input_tiket > 3:
@@ -443,12 +488,14 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
                     else:
                         total = HARGA
                         list_input_kelas.append(input_kelas)
                         list_input_tiket.append(input_tiket)
                         list_harga.append(HARGA)
                         list_total.append(total)
+                        list_uang.append(input_uang)
             else:
                 print("Kode yang anda masukkan tidak ada")
                 
@@ -465,6 +512,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                 
                 if input_tujuan == 1: # Stasiun Sumpiuh (SPH) Banyumas
                     if input_kelas == 1:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Eksekutif"
                         HARGA = 140000
                         if input_tiket > 3:
@@ -473,14 +521,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                     elif input_kelas == 2:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Bisnis"
                         HARGA = 100000
                         if input_tiket > 3:
@@ -489,14 +540,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                     elif input_kelas == 3:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Ekonomi"
                         HARGA = 70000
                         if input_tiket > 3:
@@ -505,15 +559,18 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                 elif input_tujuan == 2: # Stasiun Kediri (KD) Kediri
                     if input_kelas == 1:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Eksekutif"
                         HARGA = 275000
                         if input_tiket > 3:
@@ -522,14 +579,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                     elif input_kelas == 2:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Bisnis"
                         HARGA = 185000
                         if input_tiket > 3:
@@ -538,14 +598,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                     elif input_kelas == 3:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Ekonomi"
                         HARGA = 135000
                         if input_tiket > 3:
@@ -554,15 +617,18 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                 elif input_tujuan == 3: # Stasiun Yogyakarta
                     if input_kelas == 1:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Eksekutif"
                         HARGA = 222000
                         if input_tiket > 3:
@@ -571,14 +637,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                     elif input_kelas == 2:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Bisnis"
                         HARGA = 150000
                         if input_tiket > 3:
@@ -587,14 +656,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 
                     elif input_kelas == 3:
+                        input_uang = int(input("Masukkan jumlah uang anda: "))
                         input_kelas = "Ekonomi"
                         HARGA = 111000
                         if input_tiket > 3:
@@ -603,12 +675,14 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
                         else:
                             total = HARGA
                             list_input_kelas.append(input_kelas)
                             list_input_tiket.append(input_tiket)
                             list_harga.append(HARGA)
                             list_total.append(total)
+                            list_uang.append(input_uang)
 else:
     print("Mohon maaf belum ada jadwal stasiun kereta saat ini")
 
