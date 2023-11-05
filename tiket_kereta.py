@@ -689,4 +689,3 @@ else:
 
 print(list_input_nama)
 a
-dsaas
