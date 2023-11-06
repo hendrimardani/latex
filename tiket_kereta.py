@@ -611,19 +611,19 @@ if belumAdaJadwal:
     exit()
 else:
     print()
-    print("-" * 139)
+    print("+", "-" * 135, "+")
     print("| {:^135} |".format("STRUK PEMBAYARAN TIKET"))
     print("+", "-" * 135, "+")
     print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format("NO","NAMA", "NIK", "KELAS", "JUMLAH TIKET", "HARGA SATUAN TIKET", "HARGA TOTAL"))
     print("+", "-" * 135, "+")
-
+    
     print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} |  {:^24} | {:^25} |".format(1, list_input_nama[0], list_input_noktp[0], kelas, tiket, f"Rp.{harga}", f"Rp.{hargaSebelumDiskon}"))
-    for x in range(1, len(list_input_nama) + 1):
+    for x in range(1, len(list_input_nama)):
         print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format(x+1, list_input_nama[x-1], list_input_noktp[x-1], "-", "-", "-", "-", "-"))
     print("-" * 139)
     print("{:>96} {:>16} Rp.{} {:>15}".format("| Harga total yang harus dibayar", "=", hargaSebelumDiskon, "|"))
-    print("{:>72} {:>40} {}% {:>21}".format("| Diskon", "=", int(diskon * 100), "|")) # Kali dalam bentuk persen
+    print("{:>72} {:>40} {:>2}% {:>21}".format("| Diskon", "=", int(diskon * 100), "|")) # Kali dalam bentuk persen
     print("{:>111} {} Rp.{} {:>15}".format("| Harga total yang harus dibayar setelah diskon", "=", int(total), "|"))
-    print("{:>86} {:>26} Rp.{} {:>20}".format("| Uang yang dibayarkan", "=", uang, "|"))
+    print("{:>86} {:>26} Rp.{} {:>14}".format("| Uang yang dibayarkan", "=", uang, "|"))
     print("{:>75} {:>37} Rp.{} {:>14}".format("| Kembalian", "=",int(kembalian), "|"))
     print("{:>139}".format("-"*75))
