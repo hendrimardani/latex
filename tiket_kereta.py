@@ -3,7 +3,7 @@ import random
 import sys
 import time
 
-
+# Warna dalam kode Style Karakter
 class Color:
     PURPLE = '\033[95m'
     CYAN = '\033[96m'
@@ -15,7 +15,8 @@ class Color:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     END = '\033[0m'
-    
+
+# Fungsi mencetak dengan delay yang ditentukan
 def mengetik(s):
     for c in s + '\n':
         sys.stdout.write(c)
@@ -127,14 +128,13 @@ jamSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%X"))
 print(f"Sekarang pukul {Color.RED}{jamSekarang_2}{Color.END}")
 
 print()
-
 if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
     if int(jamSekarang) in range(110300, 130700):   # 11:03 s/d 13:07
         belumAdaJadwal = True
-        print("Mohon maaf belum ada jadwal stasiun kereta saat ini")
+        print(f"{Color.RED}Mohon maaf belum ada jadwal stasiun kereta saat ini{Color.END}")
     elif int(jamSekarang) in range(0000, 10200): # 00:00 s/d 01:02
         belumAdaJadwal = True
-        print("Mohon maaf belum ada jadwal stasiun kereta saat ini")
+        print(f"{Color.RED}Mohon maaf belum ada jadwal stasiun kereta saat ini{Color.END}")
     else:
         try:
             tiket = int(input("Masukkan jumlah tiket jika membeli lebih dari 3 mendapat potongan diskon 10%: "))
@@ -151,8 +151,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     input_noktp = int(input("Masukkan No KTP anda:"))
                     list_input_nama.append(input_nama)
                     list_input_noktp.append(input_noktp)
-                else:
-                    for x in range(1, tiket + 1):
+                else: # Jika tiket adalah 2 atau 3
+                    for x in range(1, tiket + 1): 
                         print(f"Data Ke - {Color.RED}{x}{Color.END}")
                         input_nama = input(f"Masukkan nama anda sebanyak {Color.RED}{tiket}{Color.END} kali: ")
                         input_noktp = int(input("Masukkan No KTP anda:"))
