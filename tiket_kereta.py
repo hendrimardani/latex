@@ -372,6 +372,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
 
 
                 elif input_tujuan == 2: # Stasiun Mojokerto
+                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                     if kelas == 1:
                         uang = int(input("Masukkan jumlah uang anda: "))
                         kelas = "Eksekutif"
@@ -419,6 +420,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                 
 
                 elif input_tujuan == 3: # Stasiun Jatinegara Jakarta
+                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                     if kelas == 1:
                         uang = int(input("Masukkan jumlah uang anda: "))
                         kelas = "Eksekutif"
@@ -527,6 +529,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
 
 
                     elif input_tujuan == 2: # Stasiun Kediri (KD) Kediri
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                         if kelas == 1:
                             uang = int(input("Masukkan jumlah uang anda: "))
                             kelas = "Eksekutif"
@@ -573,6 +576,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             
 
                     elif input_tujuan == 3: # Stasiun Yogyakarta
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                         if kelas == 1:
                             uang = int(input("Masukkan jumlah uang anda: "))
                             kelas = "Eksekutif"
