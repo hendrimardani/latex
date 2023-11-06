@@ -1,4 +1,27 @@
 import datetime
+import random
+import sys
+import time
+
+
+class Color:
+    PURPLE = '\033[95m'
+    CYAN = '\033[96m'
+    DARKCYAN = '\033[36m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    END = '\033[0m'
+    
+def mengetik(s):
+    for c in s + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(random.random() * 0.01)
+
 
 waktuSekarang = datetime.datetime.now()
 
@@ -73,18 +96,16 @@ nama = "Stasiun Tasikmalaya"
 for x in range(0, len(daftar_tujuan)):
     dari.append(nama)
 
+mengetik(f"+ {'-'*140} +")
+mengetik("| {}{:^140}{} |".format(Color.PURPLE, "DAFTAR TIKET KERETA", Color.END))
+mengetik(f"+ {'-'*140} +")
+mengetik("| {:^2} | {:^21} | {:^50} | {:^15} | {:^15} | {:^21} |".format("No", "Dari", "Kota Tujuan", "Harga", "Kelas", "Jam Keberangkatan/Tiba"))
+mengetik(f"+ {'-'*140} +")
 
-# Daftar Tiket Kereta
-print("+", "-"*140, "+")
-print("| {:^140} |".format("DAFTAR TIKET KERETA"))
-print("+", "-"* 140, "+")
-print("| {:^2} | {:^21} | {:^50} | {:^15} | {:^15} | {:^21} |".format("No", "Dari", "Kota Tujuan", "Harga", "Kelas", "Jam Keberangkatan/Tiba"))
-print("+", "-"*140, "+")
 
 for baris in range(0, len(daftar_tujuan)):
-    print("| {:^2} | {:^21} | {:^50} | {:^15} | {:^15} | {:^22} |".format(baris + 1, dari[baris], daftar_tujuan[baris], daftar_harga[baris], daftar_kelas[baris], daftar_jam[baris]))
-print("+", "-"* 140, "+")
-
+    mengetik("| {:^2} | {:^21} | {:^50} | {:^15} | {:^15} | {:^22} |".format(baris + 1, dari[baris], daftar_tujuan[baris], daftar_harga[baris], daftar_kelas[baris], daftar_jam[baris]))
+mengetik(f"+ {'-'*140} +")
 
 
 # Proses
@@ -103,7 +124,7 @@ belumAdaJadwal = False
 
 jamSekarang = waktuSekarang.strftime(waktuSekarang.strftime("%H%M%S"))
 jamSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%X"))
-print(f"Sekarang pukul {jamSekarang_2}")
+print(f"Sekarang pukul {Color.RED}{jamSekarang_2}{Color.END}")
 
 print()
 
@@ -119,8 +140,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
             tiket = int(input("Masukkan jumlah tiket jika membeli lebih dari 3 mendapat potongan diskon 10%: "))
             if tiket > 3:  # Jika membeli lebih dari 3
                 for x in range(1, tiket + 1):
-                    print(f"Data Ke - {x}")
-                    input_nama = input(f"Masukkan nama anda sebanyak {tiket} kali: ")
+                    print(f"Data Ke - {Color.RED}{x}{Color.END}")
+                    input_nama = input(f"Masukkan nama anda sebanyak {Color.RED}{tiket}{Color.END} kali: ")
                     input_noktp = int(input("Masukkan No KTP anda:"))
                     list_input_nama.append(input_nama)
                     list_input_noktp.append(input_noktp)
@@ -132,8 +153,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     list_input_noktp.append(input_noktp)
                 else:
                     for x in range(1, tiket + 1):
-                        print(f"Data Ke - {x}")
-                        input_nama = input(f"Masukkan nama anda sebanyak {tiket} kali: ")
+                        print(f"Data Ke - {Color.RED}{x}{Color.END}")
+                        input_nama = input(f"Masukkan nama anda sebanyak {Color.RED}{tiket}{Color.END} kali: ")
                         input_noktp = int(input("Masukkan No KTP anda:"))
                         list_input_nama.append(input_nama)
                         list_input_noktp.append(input_noktp)
@@ -611,19 +632,20 @@ if belumAdaJadwal:
     exit()
 else:
     print()
-    print("+", "-" * 135, "+")
-    print("| {:^135} |".format("STRUK PEMBAYARAN TIKET"))
-    print("+", "-" * 135, "+")
-    print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format("NO","NAMA", "NIK", "KELAS", "JUMLAH TIKET", "HARGA SATUAN TIKET", "HARGA TOTAL"))
-    print("+", "-" * 135, "+")
+    mengetik(f"+ {'-'*135} +")
+    mengetik("| {}{:^135}{} |".format(Color.DARKCYAN, "STRUK PEMBAYARAN TIKET", Color.END))
+    mengetik(f"+ {'-'*135} +")
+    mengetik("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format("NO","NAMA", "NIK", "KELAS", "JUMLAH TIKET", "HARGA SATUAN TIKET", "HARGA TOTAL"))
+    mengetik(f"+ {'-'*135} +")
     
-    print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} |  {:^24} | {:^25} |".format(1, list_input_nama[0], list_input_noktp[0], kelas, tiket, f"Rp.{harga}", f"Rp.{hargaSebelumDiskon}"))
+    mengetik("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} |  {:^24} | {:^25} |".format(1, list_input_nama[0], list_input_noktp[0], kelas, tiket, f"Rp.{harga}", f"Rp.{hargaSebelumDiskon}"))
     for x in range(1, len(list_input_nama)):
-        print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format(x+1, list_input_nama[x-1], list_input_noktp[x-1], "-", "-", "-", "-", "-"))
-    print("-" * 139)
-    print("{:>96} {:>16} Rp.{} {:>15}".format("| Harga total yang harus dibayar", "=", hargaSebelumDiskon, "|"))
-    print("{:>72} {:>40} {:>2}% {:>21}".format("| Diskon", "=", int(diskon * 100), "|")) # Kali dalam bentuk persen
-    print("{:>111} {} Rp.{} {:>15}".format("| Harga total yang harus dibayar setelah diskon", "=", int(total), "|"))
-    print("{:>86} {:>26} Rp.{} {:>14}".format("| Uang yang dibayarkan", "=", uang, "|"))
-    print("{:>75} {:>37} Rp.{} {:>14}".format("| Kembalian", "=",int(kembalian), "|"))
-    print("{:>139}".format("-"*75))
+        mengetik("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format(x+1, list_input_nama[x-1], list_input_noktp[x-1], "-", "-", "-", "-", "-"))
+    mengetik("-" * 139)
+    mengetik("{:>96} {:>16} {}Rp.{}{} {:>15}".format("| Harga total yang harus dibayar", "=", Color.RED, hargaSebelumDiskon, Color.END, "|"))
+    mengetik("{:>72} {:>40} {:>2}% {:>21}".format("| Diskon", "=", int(diskon * 100), "|")) # Kali dalam bentuk persen
+    mengetik("{:>111} {} Rp.{} {:>15}".format("| Harga total yang harus dibayar setelah diskon", "=", int(total), "|"))
+    mengetik("{:>86} {:>26} Rp.{} {:>14}".format("| Uang yang dibayarkan", "=", uang, "|"))
+    mengetik("{:>75} {:>37} {}Rp.{}{} {:>14}".format("| Kembalian", "=", Color.GREEN, int(kembalian), Color.END, "|"))
+    mengetik("{:>139}".format("-"*75))
+    mengetik("{}{:^130}{}".format(Color.PURPLE, "TERIMA KASIH !!!", Color.END))
