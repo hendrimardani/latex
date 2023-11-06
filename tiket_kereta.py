@@ -1,6 +1,4 @@
 import datetime
-import pandas as pd
-
 
 waktuSekarang = datetime.datetime.now()
 
@@ -101,6 +99,7 @@ tiket = 0
 kelas = ""
 list_input_nama = []
 list_input_noktp = []
+belumAdaJadwal = False
 
 jamSekarang = waktuSekarang.strftime(waktuSekarang.strftime("%H%M%S"))
 jamSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%X"))
@@ -110,6 +109,10 @@ print()
 
 if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
     if int(jamSekarang) in range(110300, 130700):   # 11:03 s/d 13:07
+        belumAdaJadwal = True
+        print("Mohon maaf belum ada jadwal stasiun kereta saat ini")
+    elif int(jamSekarang) in range(0000, 10200): # 00:00 s/d 01:02
+        belumAdaJadwal = True
         print("Mohon maaf belum ada jadwal stasiun kereta saat ini")
     else:
         try:
@@ -170,7 +173,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 3:
@@ -183,7 +187,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
                     else:
                         print("Pilihan tidak ada dalam daftar kode")
@@ -202,7 +207,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 2:
@@ -215,7 +221,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 3:
@@ -228,7 +235,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
                     else:
                         print("Pilihan tidak ada dalam daftar kode")
@@ -252,7 +260,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 2:
@@ -265,7 +274,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 3:
@@ -278,7 +288,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
                 else:
                     print("Pilihan tidak ada dalam daftar kode")
@@ -303,7 +314,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 2:
@@ -316,7 +328,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 3:
@@ -329,7 +342,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
                     else:
                         print("Pilihan tidak ada dalam daftar kode")
@@ -347,7 +361,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 2:
@@ -360,7 +375,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 3:
@@ -373,7 +389,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
                     else:
                         print("Pilihan tidak ada dalam daftar kode")
@@ -391,7 +408,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 2:
@@ -404,7 +422,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
 
                     elif kelas == 3:
@@ -417,7 +436,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                             kembalian = uang - total
                         else:
-                            total = harga * tiket
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
                             kembalian = uang - total
                     else:
                         print("Pilihan tidak ada dalam daftar kode")
@@ -449,7 +469,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
 
                         elif kelas == 2:
@@ -462,7 +483,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
 
                         elif kelas == 3:
@@ -475,7 +497,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
                         else:
                             print("Pilihan tidak ada dalam daftar kode")
@@ -493,7 +516,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
 
                         elif kelas == 2:
@@ -505,7 +529,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
 
                         elif kelas == 3:
@@ -518,7 +543,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
                         else:
                             print("Pilihan tidak ada dalam daftar kode")
@@ -536,7 +562,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
 
                         elif kelas == 2:
@@ -548,7 +575,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
 
                         elif kelas == 3:
@@ -561,7 +589,8 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
                             else:
-                                total = harga * tiket
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
                                 kembalian = uang - total
                         else:
                             print("Pilihan tidak ada dalam daftar kode")
@@ -578,19 +607,23 @@ else:
 
 
 # Keluaran (Output)
-print()
-print("-" * 139)
-print("| {:^135} |".format("STRUK PEMBAYARAN TIKET"))
-print("+", "-" * 135, "+")
-print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format("NO","NAMA", "NIK", "KELAS", "JUMLAH TIKET", "HARGA SATUAN TIKET", "HARGA TOTAL"))
-print("+", "-" * 135, "+")
+if belumAdaJadwal:
+    exit()
+else:
+    print()
+    print("-" * 139)
+    print("| {:^135} |".format("STRUK PEMBAYARAN TIKET"))
+    print("+", "-" * 135, "+")
+    print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format("NO","NAMA", "NIK", "KELAS", "JUMLAH TIKET", "HARGA SATUAN TIKET", "HARGA TOTAL"))
+    print("+", "-" * 135, "+")
 
-print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} |  {:^24} | {:^25} |".format(1, list_input_nama[0], list_input_noktp[0], kelas, tiket, f"Rp.{harga}", f"Rp.{hargaSebelumDiskon}"))
-for x in range(1, len(list_input_nama) + 1):
-    print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format(x+1, list_input_nama[x-1], list_input_noktp[x-1], "-", "-", "-", "-", "-"))
-print("-" * 139)
-print("{:>120} = {}".format("Harga total yang harus dibayar", hargaSebelumDiskon))
-print("{:>120} = {} %".format("Diskon", int(diskon * 100))) # Kali dalam bentuk persen
-print("{:>120} = {}".format("Harga total yang harus dibayar setelah diskon", total))
-print("{:>120} = Rp.{} ".format("Uang yang dibayarkan", uang))
-print("{:>120} = Rp.{}".format("Kembalian", kembalian))
+    print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} |  {:^24} | {:^25} |".format(1, list_input_nama[0], list_input_noktp[0], kelas, tiket, f"Rp.{harga}", f"Rp.{hargaSebelumDiskon}"))
+    for x in range(1, len(list_input_nama) + 1):
+        print("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |".format(x+1, list_input_nama[x-1], list_input_noktp[x-1], "-", "-", "-", "-", "-"))
+    print("-" * 139)
+    print("{:>96} {:>16} Rp.{} {:>15}".format("| Harga total yang harus dibayar", "=", hargaSebelumDiskon, "|"))
+    print("{:>72} {:>40} {}% {:>21}".format("| Diskon", "=", int(diskon * 100), "|")) # Kali dalam bentuk persen
+    print("{:>111} {} Rp.{} {:>15}".format("| Harga total yang harus dibayar setelah diskon", "=", int(total), "|"))
+    print("{:>86} {:>26} Rp.{} {:>20}".format("| Uang yang dibayarkan", "=", uang, "|"))
+    print("{:>75} {:>37} Rp.{} {:>14}".format("| Kembalian", "=",int(kembalian), "|"))
+    print("{:>139}".format("-"*75))
