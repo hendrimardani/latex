@@ -111,6 +111,7 @@ for baris in range(0, len(daftar_tujuan)):
 print(f"+ {'-'*140} +")
 
 
+
 # Proses
 print()
 diskon = 0
