@@ -33,18 +33,6 @@ daftar_harga = (
     "Rp.300.000", # Jakarta (Pasar Senen)
     "Rp.200.000",
     "Rp.100.000",
-    "Rp.150.000", # Mojokerto
-    "Rp.120.000",
-    "Rp.75000",
-    "Rp.275.000", # Jakarta (Jarinegara)
-    "Rp.175.000",
-    "Rp.135.000",
-    "Rp.140.000", # Banyumas
-    "Rp.100.000",
-    "Rp.70.000",
-    "Rp.275.000", # Kediri
-    "Rp.185.000",
-    "Rp.135.000",
     "Rp.220.000", # Yogya
     "Rp.150.000",
     "Rp.110.000"
@@ -53,10 +41,6 @@ daftar_harga = (
 kota = (
     "Stasiun Kiaracondong (KAC) Bandung", 
     "Stasiun Pasar senen (PSE) Jakarta",
-    "Stasiun Mojokerto (MR) Mojokerto",
-    "Stasiun Jatinegara Jakarta",
-    "Stasiun Sumpiuh (SPH) Banyumas",
-    "Stasiun Kediri (KD) Kediri",
     "Stasiun Yogyakarta"
 )
 
@@ -80,10 +64,6 @@ for x in range(0, len(kota)):
 jam = (
     "02:58 s/d 05:36",
     "20:46 s/d 03:55",
-    "13:08 s/d 23:11",
-    "20:46 s/d 03:55",
-    "23:32 s/d 02:44",
-    "01:02 s/d 11:01",
     "23:32 s/d 02:44",
 )
 
@@ -134,14 +114,16 @@ tglSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%d %B %Y")) # 08 
 print(f"Sekarang tanggal {Color.RED}{tglSekarang_2}{Color.END}")
 print(f"Sekarang pukul {Color.RED}{jamSekarang_2}{Color.END}")
 
-
 if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
-    if int(jamSekarang) not in range(110300, 130700) and int(tglSekarang) not in range(1, 13):   # 11:03 s/d 13:07 dan bulan 1 s/d 12
+    inpTgl = int(input("Masukkan Tanggal: "))
+    if inpTgl == int(tglSekarang):   # Jika tanggal sekarang
         belumAdaJadwal = True
-        print(f"{Color.RED}Mohon maaf belum ada jadwal stasiun kereta saat ini{Color.END}")
-    elif int(jamSekarang) not in range(0000, 10200) and int(tglSekarang) not in range(1, 13): # 00:00 s/d 01:02 dan bulan 1 s/d 12
+        print(f"{Color.RED}Mohon maaf belum ada jadwal stasiun kereta saat ini, silahkan ganti tanggal!!!{Color.END}")
+        exit()
+    elif inpTgl < int(tglSekarang):   # Jika kurang dari tanggal sekarang
         belumAdaJadwal = True
-        print(f"{Color.RED}Mohon maaf belum ada jadwal stasiun kereta saat ini{Color.END}")
+        print(f"Memasukkan tanggal tidak boleh kurang dari tanggal saat ini!, sekarang tanggal {Color.RED}{tglSekarang}{Color.END}")
+        exit()
     else:
         try:
             tiket = int(input(f"Masukkan jumlah tiket jika membeli lebih dari 3 mendapat potongan " +
@@ -170,398 +152,18 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                 print("Tidak boleh memasukkan angka nol!!!")
                 exit()
 
-            if int(jamSekarang) not in range(25800, 53600) and \
-                int(jamSekarang) not in range(10200, 110100): # 02:58 s/d 05:36 dan 01:02 s/d 11:01
-                print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n[1] Stasiun Kiaracondong (KAC) Bandung\n" +
-                "[2] Stasiun Kediri (KD) Kediri")
-                print()
-                
-                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n{Color.RED}" +
-                    f"[1]{Color.END} Stasiun Kiaracondong (KAC) Bandung\n{Color.YELLOW}" +
-                    f"[2]{Color.END} Stasiun Kediri (KD) Kediri: "))
-                if input_tujuan == 1: # Stasiun KAC Bandung
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.RED}" +
-                                      f"[2] Bisnis{Color.END}\n{Color.YELLOW}[3] Ekonomi{Color.END}: "))
-                    if kelas == 1:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Eksekutif"
-                        harga = 135000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                
-                    elif kelas == 2:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Bisnis"
-                        harga = 84000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
 
-                    elif kelas == 3:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Ekonomi"
-                        harga = 63000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                    else:
-                        print("Pilihan tidak ada dalam daftar kode")
-                        exit()
-
-
-                elif input_tujuan == 2: # Stasiun Kediri
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
-                                      f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
-                    if kelas == 1:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Eksekutif"
-                        harga = 275000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 2:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Bisnis"
-                        harga = 185000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 3:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Ekonomi"
-                        harga = 135000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                    else:
-                        print("Pilihan tidak ada dalam daftar kode")
-                        exit()
-
-
-            elif int(jamSekarang) not in range(10200, 110100):  # 01:02 s/d 11:01
-                print("Jadwal stasiun kereta saat ini yang tersedia adalah hanya Stasiun Kediri (KD) Kediri")
-                print()
-
-                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n{Color.RED}" +
-                                f"[1]{Color.END} Stasiun Kediri (KD) Kediri: "))
-                if input_tujuan == 1: # Stasiun Kediri
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
-                                      f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
-                    if kelas == 1:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Eksekutif"
-                        harga = 275000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 2:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Bisnis"
-                        harga = 185000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 3:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Ekonomi"
-                        harga = 135000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                else:
-                    print("Pilihan tidak ada dalam daftar kode")
-                    exit()
-            
-            elif int(jamSekarang) not in range(24600, 35500): # 20:46 s/d 03:55 
-                print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n" + 
-                f"{Color.RED}[1]{Color.END} Stasiun Pasar Senen (PSE) Jakarta\n" +
-                f"{Color.YELLOW}[2]{Color.END} Stasiun Jatinegara Jakarta")
-                print()
-
-                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
-                f"{Color.RED}[1]{Color.END} Stasiun Pasar Senen (PSE) Jakarta\n" +
-                f"{Color.YELLOW}[1]{Color.END} Stasiun Jatinegara Jakarta"))
-                if input_tujuan == 1: # Stasiun PSE Jakarta
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
-                    f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}" +
-                    f"[3] Ekonomi{Color.END}: "))
-                    if kelas == 1:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Eksekutif"
-                        harga = 135000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 2:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Bisnis"
-                        harga = 84000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 3:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Ekonomi"
-                        harga = 63000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                    else:
-                        print("Pilihan tidak ada dalam daftar kode")
-                        exit()
-
-                elif input_tujuan == 3: # Stasiun Jatinegara Jakarta
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
-                    f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
-                    if kelas == 1:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Eksekutif"
-                        harga = 275000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 2:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Bisnis"
-                        harga = 185000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 3:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Ekonomi"
-                        harga = 135000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                    else:
-                        print("Pilihan tidak ada dalam daftar kode")
-                        exit()
-                else:
-                    print("Pilihan tidak ada dalam daftar kode")
-                    exit()
-
-            elif int(jamSekarang) not in range(130800, 231100): # 13:08 s/d 23:11
-                print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
-                f"{Color.YELLOW}[2]{Color.END} Stasiun Mojokerto (MR) Mojokerto")
-                print()
-
-                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
-                f"{Color.RED}[1]{Color.END} Stasiun Mojokerto (MR) Mojokerto"))
-
-                if input_tujuan == 1: # Stasiun Mojokerto
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
-                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
-                    if kelas == 1:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Eksekutif"
-                        harga = 150000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 2:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Bisnis"
-                        harga = 120000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 3:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Ekonomi"
-                        harga = 75000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                    else:
-                        print("Pilihan tidak ada dalam daftar kode")
-                        exit()
-                        
-                    
-            elif int(jamSekarang) not in range(24400, 233200): # 02:44 s/d 23:32
-                if int(jamSekarang) not in range(110200, 130700):   # 11:03 s/d 13:07
-                    print("Mohon maaf belum ada jadwal stasiun kereta saat ini")
-                else:
-                    print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
-                    f"{Color.RED}[1]{Color.END} Stasiun Sumpiuh (SPH) Banyumas\n" +
-                    f"{Color.YELLOW}[2]{Color.END} Stasiun Kediri (KD) Kediri\n{Color.GREEN}[3]{Color.END} Stasiun Yogyakarta")
-                    print()
+            if int(jamSekarang.removeprefix("0")) in range(25800, 53600): # 02:58 s/d 05:36
+                if int(jamSekarang.removeprefix("0")) in range(25800, 35500): # 02:58 s/d 03:55
+                    # Selain stasiun kac bandung, pse jakarta, jatinegara jakarta, dan kediri
+                    print("Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                    "[1] Stasiun Yogyakarta")
 
                     input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
-                            f"{Color.RED}[1]{Color.END} Stasiun Sumpiuh (SPH) Banyumas\n{Color.YELLOW}" +
-                            f"[2]{Color.END} Stasiun Kediri (KD) Kediri\n" +
-                            f"{Color.GREEN}[3]{Color.END} Stasiun Yogyakarta: "))
-                    if input_tujuan == 1: # Stasiun Sumpiuh (SPH) Banyumas
-                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
-                            f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
-                        if kelas == 1:
-                            uang = int(input("Masukkan jumlah uang anda: "))
-                            kelas = "Eksekutif"
-                            harga = 140000
-                            if tiket > 3:
-                                diskon = 10/100
-                                hargaSebelumDiskon = harga * tiket
-                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                                kembalian = uang - total
-                            else:
-                                hargaSebelumDiskon = harga * tiket
-                                total = hargaSebelumDiskon
-                                kembalian = uang - total
-
-                        elif kelas == 2:
-                            uang = int(input("Masukkan jumlah uang anda: "))
-                            kelas = "Bisnis"
-                            harga = 100000
-                            if tiket > 3:
-                                diskon = 10/100
-                                hargaSebelumDiskon = harga * tiket
-                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                                kembalian = uang - total
-                            else:
-                                hargaSebelumDiskon = harga * tiket
-                                total = hargaSebelumDiskon
-                                kembalian = uang - total
-
-                        elif kelas == 3:
-                            uang = int(input("Masukkan jumlah uang anda: "))
-                            kelas = "Ekonomi"
-                            harga = 70000
-                            if tiket > 3:
-                                diskon = 10/100
-                                hargaSebelumDiskon = harga * tiket
-                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                                kembalian = uang - total
-                            else:
-                                hargaSebelumDiskon = harga * tiket
-                                total = hargaSebelumDiskon
-                                kembalian = uang - total
-                        else:
-                            print("Pilihan tidak ada dalam daftar kode")
-                            exit()
-
-
-                    elif input_tujuan == 2: # Stasiun Kediri (KD) Kediri
-                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
-                        f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                    f"{Color.RED}[1] Stasiun Yogyakarta{Color.END}: "))
+                    if input_tujuan == 1:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                         if kelas == 1:
                             uang = int(input("Masukkan jumlah uang anda: "))
                             kelas = "Eksekutif"
@@ -581,6 +183,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             kelas = "Bisnis"
                             harga = 185000
                             if tiket > 3:
+                                diskon = 10/100
                                 hargaSebelumDiskon = harga * tiket
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
@@ -605,15 +208,25 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         else:
                             print("Pilihan tidak ada dalam daftar kode")
                             exit()
-                            
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
+                        exit()                    
+                else:
+                    # Selain stasiun kac bandung
+                    print("Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                    "[1] Stasiun Pasar Senen (PSE) Jakarta\n" +
+                    "[2] Stasiun Yogyakarta")
 
-                    elif input_tujuan == 3: # Stasiun Yogyakarta
-                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
-                        f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                    input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
+                    f"{Color.RED}[1] Stasiun Pasar Senen (PSE) Jakarta{Color.END}\n" +
+                    f"{Color.GREEN}[2] Stasiun Yogyakarta{Color.END}: "))
+                    if input_tujuan == 1:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                         if kelas == 1:
                             uang = int(input("Masukkan jumlah uang anda: "))
                             kelas = "Eksekutif"
-                            harga = 222000
+                            harga = 275000
                             if tiket > 3:
                                 diskon = 10/100
                                 hargaSebelumDiskon = harga * tiket
@@ -627,8 +240,9 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         elif kelas == 2:
                             uang = int(input("Masukkan jumlah uang anda: "))
                             kelas = "Bisnis"
-                            harga = 150000
+                            harga = 185000
                             if tiket > 3:
+                                diskon = 10/100
                                 hargaSebelumDiskon = harga * tiket
                                 total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
                                 kembalian = uang - total
@@ -640,7 +254,55 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         elif kelas == 3:
                             uang = int(input("Masukkan jumlah uang anda: "))
                             kelas = "Ekonomi"
-                            harga = 111000
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+
+                    elif input_tujuan == 2:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
                             if tiket > 3:
                                 diskon = 10/100
                                 hargaSebelumDiskon = harga * tiket
@@ -654,7 +316,599 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             print("Pilihan tidak ada dalam daftar kode")
                             exit()
                     else:
-                        print("Kode yang anda masukkan tidak ada")
+                        print("Pilihan tidak ada dalam daftar kode")
+                        exit()
+
+
+            elif int(jamSekarang.removeprefix("0")) in range(0, 35500): # 20:46 s/d 03:55
+                if int(jamSekarang.removeprefix("0")) in range(0, 24400): # 23:32 s/d 02:44
+                    # Selain stasiun yogyakarta
+                    print("Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                    "[1] Stasiun Kiaracondong (KAC) Bandung\n" +
+                    "[2] Stasiun Pasar Senen (PSE) Jakarta")
+
+                    input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
+                    f"{Color.RED}[1] Stasiun Kiaracondong (KAC) Bandung{Color.END}\n" +
+                    f"{Color.YELLOW}[2] Stasiun Pasar Senen (PSE) Jakarta{Color.END}: "))                
+                    if input_tujuan == 1:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+
+                    elif input_tujuan == 2:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
+                        exit()
+                else:
+                    # Selain stasiun pse jakarta
+                    print("Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                    "[1] Stasiun Kiaracondong (KAC) Bandung\n" +
+                    "[2] Stasiun Yogyakarta")
+
+                    input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
+                    f"{Color.RED}[1] Stasiun Kiaracondong (KAC) Bandung{Color.END}\n" +
+                    f"{Color.GREEN}[2] Stasiun Yogyakarta{Color.END}: "))                  
+                    if input_tujuan == 1:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+
+                    elif input_tujuan == 2:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
+                        exit()
+
+
+            elif int(jamSekarang.removeprefix("0")) in range(0, 24400): # 23:32 s/d 02:44
+                # Selain stasiun yogyakarta             
+                print("Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                "[1] Stasiun Kiaracondong (KAC) Bandung\n" +
+                "[2] Stasiun Pasar Senen (PSE) Jakarta")
+
+                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
+                f"{Color.RED}[1] Stasiun Kiaracondong (KAC) Bandung{Color.END}\n" +
+                f"{Color.GREEN}[2] Stasiun Pasar Senen (PSE) Jakarta{Color.END}: "))
+                kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                if input_tujuan == 1:
+                    if kelas == 1:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Eksekutif"
+                        harga = 275000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+
+                    elif kelas == 2:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Bisnis"
+                        harga = 185000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+
+                    elif kelas == 3:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Ekonomi"
+                        harga = 135000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
+                    exit()
+
+                elif input_tujuan == 2:
+                    if kelas == 1:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Eksekutif"
+                        harga = 275000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+
+                    elif kelas == 2:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Bisnis"
+                        harga = 185000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+
+                    elif kelas == 3:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Ekonomi"
+                        harga = 135000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
+                        exit()
+                else:
+                    print("Pilihan tidak ada dalam daftar kode")
+                    exit()
+
+            elif int(jamSekarang.removeprefix("0")) in range(53700, 204600): # 05:37 s/d 20:46
+                if int(jamSekarang.removeprefix("0")) in range(60000, 204600): # 06:00 s/d 20:46
+                    # stasiun ada semua
+                    print("Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                    "[1] Stasiun Kiaracondong (KAC) Bandung\n" +
+                    "[2] Stasiun Pasar Senen (PSE) Jakarta\n" +
+                    "[3] Stasiun Yogyakarta")
+
+                    input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
+                    f"{Color.RED}[1] Stasiun Kiaracondong (KAC) Bandung{Color.END}\n" +
+                    f"{Color.GREEN}[2] Stasiun Pasar Senen (PSE) Jakarta{Color.END}\n" +
+                    f"{Color.YELLOW}[3] Stasiun Yogyakarta{Color.END}: "))
+                    if input_tujuan == 1:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+
+                    elif input_tujuan == 2:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+
+                    elif input_tujuan == 3:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
+                        exit()
+                else:
+                    # stasiun kac bandung sedang istirahat
+                    print("Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                    f"[1] Stasiun Kiaracondong (KAC) Bandung {Color.RED}(Sedang Istirahat){Color.END}\n" +
+                    "[2] Stasiun Pasar Senen (PSE) Jakarta\n" +
+                    "[3] Stasiun Yogyakarta")
+
+                    input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
+                    f"{Color.GREEN}[1] Stasiun Pasar Senen (PSE) Jakarta{Color.END}\n" +
+                    f"{Color.YELLOW}[2] Stasiun Yogyakarta{Color.END}: "))
+                    if input_tujuan == 1:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+
+                    elif input_tujuan == 2:
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                        if kelas == 1:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Eksekutif"
+                            harga = 275000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 2:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Bisnis"
+                            harga = 185000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+
+                        elif kelas == 3:
+                            uang = int(input("Masukkan jumlah uang anda: "))
+                            kelas = "Ekonomi"
+                            harga = 135000
+                            if tiket > 3:
+                                diskon = 10/100
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                                kembalian = uang - total
+                            else:
+                                hargaSebelumDiskon = harga * tiket
+                                total = hargaSebelumDiskon
+                                kembalian = uang - total
+                        else:
+                            print("Pilihan tidak ada dalam daftar kode")
+                            exit()
+
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
                         exit()
 
         except ValueError:
