@@ -175,7 +175,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                 print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n[1] Stasiun Kiaracondong (KAC) Bandung\n" +
                 "[2] Stasiun Kediri (KD) Kediri")
                 print()
-
+                
                 input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n{Color.RED}" +
                     f"[1]{Color.END} Stasiun Kiaracondong (KAC) Bandung\n{Color.YELLOW}" +
                     f"[2]{Color.END} Stasiun Kediri (KD) Kediri: "))
