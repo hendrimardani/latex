@@ -126,21 +126,25 @@ list_input_nama = []
 list_input_noktp = []
 belumAdaJadwal = False
 
-jamSekarang = waktuSekarang.strftime(waktuSekarang.strftime("%H%M%S"))
-jamSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%X"))
+jamSekarang = waktuSekarang.strftime(waktuSekarang.strftime("%H%M%S")) # 052655
+jamSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%X")) # 05:26:55
+tglSekarang = waktuSekarang.strftime(waktuSekarang.strftime("%d")) # 08
+tglSekarang_2 = waktuSekarang.strftime(waktuSekarang.strftime("%d %B %Y")) # 08 November 2023
+
+print(f"Sekarang tanggal {Color.RED}{tglSekarang_2}{Color.END}")
 print(f"Sekarang pukul {Color.RED}{jamSekarang_2}{Color.END}")
 
-print()
+
 if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
-    if int(jamSekarang) in range(110300, 130700):   # 11:03 s/d 13:07
+    if int(jamSekarang) not in range(110300, 130700) and int(tglSekarang) not in range(1, 13):   # 11:03 s/d 13:07 dan bulan 1 s/d 12
         belumAdaJadwal = True
         print(f"{Color.RED}Mohon maaf belum ada jadwal stasiun kereta saat ini{Color.END}")
-    elif int(jamSekarang) in range(0000, 10200): # 00:00 s/d 01:02
+    elif int(jamSekarang) not in range(0000, 10200) and int(tglSekarang) not in range(1, 13): # 00:00 s/d 01:02 dan bulan 1 s/d 12
         belumAdaJadwal = True
         print(f"{Color.RED}Mohon maaf belum ada jadwal stasiun kereta saat ini{Color.END}")
     else:
         try:
-            tiket = int(input(f"Masukkan jumlah tiket jika membeli lebih dari 3 mendapat potongan" +
+            tiket = int(input(f"Masukkan jumlah tiket jika membeli lebih dari 3 mendapat potongan " +
                               f"diskon {Color.RED}10%{Color.END}: "))
             if tiket > 3:  # Jika membeli lebih dari 3
                 for x in range(1, tiket + 1):
@@ -166,17 +170,17 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                 print("Tidak boleh memasukkan angka nol!!!")
                 exit()
 
-            if int(jamSekarang) in range(25800, 53600) and \
-                int(jamSekarang) in range(10200, 110100): # 02:58 s/d 05:36 dan 01:02 s/d 11:01
+            if int(jamSekarang) not in range(25800, 53600) and \
+                int(jamSekarang) not in range(10200, 110100): # 02:58 s/d 05:36 dan 01:02 s/d 11:01
                 print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n[1] Stasiun Kiaracondong (KAC) Bandung\n" +
                 "[2] Stasiun Kediri (KD) Kediri")
                 print()
 
-                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n{Color.RED}",
-                    f"[1]{Color.END} Stasiun Kiaracondong (KAC) Bandung\n{Color.YELLOW}",
+                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n{Color.RED}" +
+                    f"[1]{Color.END} Stasiun Kiaracondong (KAC) Bandung\n{Color.YELLOW}" +
                     f"[2]{Color.END} Stasiun Kediri (KD) Kediri: "))
                 if input_tujuan == 1: # Stasiun KAC Bandung
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.RED}",
+                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.RED}" +
                                       f"[2] Bisnis{Color.END}\n{Color.YELLOW}[3] Ekonomi{Color.END}: "))
                     if kelas == 1:
                         uang = int(input("Masukkan jumlah uang anda: "))
@@ -273,11 +277,11 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                         exit()
 
 
-            elif int(jamSekarang) in range(10200, 110100):  # 01:02 s/d 11:01
+            elif int(jamSekarang) not in range(10200, 110100):  # 01:02 s/d 11:01
                 print("Jadwal stasiun kereta saat ini yang tersedia adalah hanya Stasiun Kediri (KD) Kediri")
                 print()
 
-                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n{Color.RED}",
+                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n{Color.RED}" +
                                 f"[1]{Color.END} Stasiun Kediri (KD) Kediri: "))
                 if input_tujuan == 1: # Stasiun Kediri
                     kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
@@ -326,19 +330,16 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                 else:
                     print("Pilihan tidak ada dalam daftar kode")
                     exit()
-
-            elif int(jamSekarang) in range(130800, 231100) and \
-                int(jamSekarang) in range(204600, 355000): # 13:08 s/d 23:11 dan 20:46 s/d 03:55
-                print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
-                f"{Color.RED}[1]{Color.END}Stasiun Pasar senen (PSE) Jakarta\n" +
-                f"{Color.YELLOW}[2]{Color.END} Stasiun Mojokerto (MR) Mojokerto\n" +
-                f"{Color.GREEN}[3]{Color.END} Stasiun Jatinegara Jakarta")
+            
+            elif int(jamSekarang) not in range(24600, 35500): # 20:46 s/d 03:55 
+                print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n" + 
+                f"{Color.RED}[1]{Color.END} Stasiun Pasar Senen (PSE) Jakarta\n" +
+                f"{Color.YELLOW}[2]{Color.END} Stasiun Jatinegara Jakarta")
                 print()
 
                 input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
-                f"{Color.RED}[1]{Color.END} Stasiun Pasar senen (PSE) Jakarta\n" +
-                f"{Color.YELLOW}[2]{Color.END} Stasiun Mojokerto (MR) Mojokerto\n" +
-                f"{Color.GREEN}[3]{Color.END} Stasiun Jatinegara Jakarta: "))
+                f"{Color.RED}[1]{Color.END} Stasiun Pasar Senen (PSE) Jakarta\n" +
+                f"{Color.YELLOW}[1]{Color.END} Stasiun Jatinegara Jakarta"))
                 if input_tujuan == 1: # Stasiun PSE Jakarta
                     kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
                     f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}" +
@@ -387,56 +388,6 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                     else:
                         print("Pilihan tidak ada dalam daftar kode")
                         exit()
-
-
-                elif input_tujuan == 2: # Stasiun Mojokerto
-                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
-                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
-                    if kelas == 1:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Eksekutif"
-                        harga = 150000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 2:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Bisnis"
-                        harga = 120000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-
-                    elif kelas == 3:
-                        uang = int(input("Masukkan jumlah uang anda: "))
-                        kelas = "Ekonomi"
-                        harga = 75000
-                        if tiket > 3:
-                            diskon = 10/100
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
-                            kembalian = uang - total
-                        else:
-                            hargaSebelumDiskon = harga * tiket
-                            total = hargaSebelumDiskon
-                            kembalian = uang - total
-                    else:
-                        print("Pilihan tidak ada dalam daftar kode")
-                        exit()
-                
 
                 elif input_tujuan == 3: # Stasiun Jatinegara Jakarta
                     kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
@@ -488,10 +439,66 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                 else:
                     print("Pilihan tidak ada dalam daftar kode")
                     exit()
-                
+
+            elif int(jamSekarang) not in range(130800, 231100): # 13:08 s/d 23:11
+                print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
+                f"{Color.YELLOW}[2]{Color.END} Stasiun Mojokerto (MR) Mojokerto")
+                print()
+
+                input_tujuan = int(input(f"Masukkan kode kereta yang tersedia:\n" +
+                f"{Color.RED}[1]{Color.END} Stasiun Mojokerto (MR) Mojokerto"))
+
+                if input_tujuan == 1: # Stasiun Mojokerto
+                    kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n{Color.YELLOW}" +
+                                        f"[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
+                    if kelas == 1:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Eksekutif"
+                        harga = 150000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+
+                    elif kelas == 2:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Bisnis"
+                        harga = 120000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+
+                    elif kelas == 3:
+                        uang = int(input("Masukkan jumlah uang anda: "))
+                        kelas = "Ekonomi"
+                        harga = 75000
+                        if tiket > 3:
+                            diskon = 10/100
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon - (hargaSebelumDiskon * diskon)
+                            kembalian = uang - total
+                        else:
+                            hargaSebelumDiskon = harga * tiket
+                            total = hargaSebelumDiskon
+                            kembalian = uang - total
+                    else:
+                        print("Pilihan tidak ada dalam daftar kode")
+                        exit()
+                        
                     
-            elif int(jamSekarang) in range(24400, 233200): # 02:44 s/d 23:32
-                if int(jamSekarang) in range(110100, 130800):   # 11:03 s/d 13:07
+            elif int(jamSekarang) not in range(24400, 233200): # 02:44 s/d 23:32
+                if int(jamSekarang) not in range(110200, 130700):   # 11:03 s/d 13:07
                     print("Mohon maaf belum ada jadwal stasiun kereta saat ini")
                 else:
                     print(f"Jadwal stasiun kereta saat ini yang tersedia adalah\n" +
@@ -504,7 +511,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
                             f"[2]{Color.END} Stasiun Kediri (KD) Kediri\n" +
                             f"{Color.GREEN}[3]{Color.END} Stasiun Yogyakarta: "))
                     if input_tujuan == 1: # Stasiun Sumpiuh (SPH) Banyumas
-                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n",
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
                             f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                         if kelas == 1:
                             uang = int(input("Masukkan jumlah uang anda: "))
@@ -553,7 +560,7 @@ if int(jamSekarang) in range(0000, 235900):    #  00:00 s/d 23:59
 
 
                     elif input_tujuan == 2: # Stasiun Kediri (KD) Kediri
-                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n",
+                        kelas = int(input(f"Masukkan kode kelas\n{Color.RED}[1] Eksekutif{Color.END}\n" +
                         f"{Color.YELLOW}[2] Bisnis{Color.END}\n{Color.GREEN}[3] Ekonomi{Color.END}: "))
                         if kelas == 1:
                             uang = int(input("Masukkan jumlah uang anda: "))
@@ -673,7 +680,7 @@ else:
     .format(1, list_input_nama[0], list_input_noktp[0], kelas, tiket, f"Rp.{harga}", f"Rp.{hargaSebelumDiskon}"))
     for x in range(1, len(list_input_nama)):
         mengetik("| {:^2} | {:^20} | {:^15} | {:^15} | {:^15} | {:^25} | {:^25} |"
-        .format(x+1, list_input_nama[x-1], list_input_noktp[x-1], "-", "-", "-", "-", "-"))
+        .format(x+1, list_input_nama[x], list_input_noktp[x], "-", "-", "-", "-", "-"))
     mengetik("-" * 139)
     mengetik("{:>96} {:>16} {}Rp.{}{} {:>15}".format("| Harga total yang harus dibayar", "=", Color.RED, hargaSebelumDiskon, Color.END, "|"))
     mengetik("{:>72} {:>40} {:>2}% {:>21}".format("| Diskon", "=", int(diskon * 100), "|")) # Kali dalam bentuk persen
